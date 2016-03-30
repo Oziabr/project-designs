@@ -1,0 +1,35 @@
+{
+  "name": "conveyor",
+  "authors": [
+    "Yury <oziabr@gmail.com>"
+  ],
+  "description": "project builder",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.5.1",
+    "moment": "^2.12.0",
+    "jquery": "^2.2.1",
+    "angular": "^1.5.2",
+    "angular-animate": "^1.5.2",
+    "angular-sanitize": "^1.5.2",
+    "angular-messages": "^1.5.2",
+    "restangular": "^1.5.2",
+    "angular-ui-router": "^0.2.18",
+    "angular-material": "^1.0.6",
+    "angular-toastr": "^1.7.0",
+    "animate.css": "^3.5.1",
+    "Materialize": "materialize#^0.97.5",
+    "components-font-awesome": "^4.5.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.2"
+  }
+}

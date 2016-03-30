@@ -1,0 +1,147 @@
+extends layout
+block body
+  style.
+    div#day_group .md-icon-button.md-button { margin: 0px }
+  .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+    .right техническая панель: Клиент
+    div
+      span
+        a.breadcrumb(href="./lead.html") Lead
+        a.breadcrumb(href="./") Landing
+        a.breadcrumb(href="./search.html") Search
+      span
+        a.breadcrumb(href="#")
+        a.breadcrumb(href="./order.html") Order
+        a.breadcrumb(href="./payment.html") Payment
+        a.breadcrumb(href="./order-history.html") Orders History
+        a.breadcrumb(href="#") 
+
+  +navbar-unresponsive('Поиск в "Moscow, ID"', './').lighten-1(class=colorOne)
+    li
+      a.dropdown-button(data-activates='login_drop', href='#') Войти
+      ul#login_drop.dropdown-content
+        li: a(href="#!") Facebook
+        li: a(href="#!") Gmail
+        li: a(href="#!") ВК        
+  .container
+    .section
+      .row
+        .col.s3
+          h5 Дни
+          div#day_group
+            md-button.md-icon-button.md-raised ПН
+            md-button.md-icon-button.md-raised ВТ
+            md-button.md-icon-button.md-raised.md-warn СР
+            md-button.md-icon-button.md-raised.md-warn ЧТ
+            md-button.md-icon-button.md-raised.md-warn ПТ
+            md-button.md-icon-button.md-raised СБ
+            md-button.md-icon-button.md-raised ВС
+        .col.s3
+          h5 Рейтинг
+          md-slider(md-discrete, ng-model="rating", step="1", min="1", max="5", aria-label="rating")
+        .col.s3
+          h5 Стоимость
+          md-slider(md-discrete, ng-model="price", step="100", min="100", max="1500", aria-label="price")
+        .col.s3
+          h5 Длительность
+          md-slider(md-discrete, ng-model="duration", step="0.5", min="1", max="8", aria-label="duration")
+      .row
+        .input-field.col.s12
+          i.material-icons.prefix search
+          input#search.validate(type="text", value='Moscow, ID')
+          label(for="search") Локация
+      
+    .section
+      .row
+
+        .col.l4.m6.s12
+          .card.hoverable
+            .card-image
+              img(src='./images/pic0.jpg')
+              span.card-title.activator Городской трамвай
+                i.material-icons.right more_horiz
+            .card-reveal
+              span.card-title.activator Городской трамвай
+                i.material-icons.right close
+              a.btn-flat Ежедневно
+              a.btn-flat 1.5 — 2 часа
+              p Трамвай является одним из старейших видов городского пассажирского общественного транспорта, из существующих в начале XXI века[1] и возник в первой половине XIX века — первоначально на конной тяге. Электрический трамвай появился в конце XIX века — в 1881 году в Германии.[2] После расцвета, эпоха которого пришлась на период между мировыми войнами, начался упадок трамвая, однако уже с 1970-х годов вновь наблюдается значительный рост популярности трамвая.
+            .card-content
+              .chip Город
+              .chip Трамвай
+              .chip Транспорт
+            .card-action.right-align
+              a.activator(href='#') Подробнее
+              a.btn(href='./order.html') Заказать - 1500р
+
+        .col.l4.m6.s12
+          .card.hoverable
+            .card-image
+              img(src='./images/pic1.jpg')
+              span.card-title.activator Смотровая площадка
+                i.material-icons.right more_horiz
+            .card-reveal
+              span.card-title.activator Смотровая площадка
+                i.material-icons.right close
+              a.btn-flat Ежедневно
+              a.btn-flat 1 час
+              p Уникальная возможность на некоторое время заглянуть в закрытую апартаментную часть башни «Запад» комплекса «Федерация» где расположена смотровая площадка с прекрасным видом на центр Москвы до Поклонной горы. Смотровая площадка Москва Сити расположена в скандально известном комплексе «Федерация».
+            .card-content
+              .chip Панорама
+              .chip Обзор
+            .card-action.right-align
+              a.activator(href='#') Подробнее
+              a.btn(href='./order.html') Заказать - 1000р
+
+        .col.l4.m6.s12
+          .card.hoverable
+            .card-image
+              img(src='./images/pic2.jpg')
+              span.card-title.activator Золотые ворота (мост)
+                i.material-icons.right more_horiz
+            .card-reveal
+              span.card-title.activator Золотые ворота (мост)
+                i.material-icons.right close
+              a.btn-flat ПТ-ВС
+              a.btn-flat 4 часа
+              p Мост Золоты́е Воро́та (англ. the Golden Gate Bridge) — висячий мост через пролив Золотые Ворота. Он соединяет город Сан-Франциско на севере полуострова Сан-Франциско и южную часть округа Марин, рядом с пригородом Саусалито. Мост Золотые Ворота был самым большим висячим мостом в мире с момента открытия в 1937 году и до 1964 года. Общая длина моста — 2737 м, длина основного пролёта — 1280 м, высота опор — 227 м над водой, масса — 894 500 т.
+            .card-content
+              .chip Мосты
+              .chip Транспорт
+            .card-action.right-align
+              a.activator(href='#') Подробнее
+              a.btn(href='./order.html') Заказать - 350р
+          
+        .col.l4.m6.s12
+          .card.hoverable
+            .card-image
+              img(src='./images/pic3.jpg')
+              span.card-title.activator Дальний берег
+                i.material-icons.right more_horiz
+            .card-reveal
+              span.card-title.activator Дальний берег
+                i.material-icons.right close
+              | В 1664 году город был захвачен англичанами, не встретившими сопротивления со стороны губернатора Стёйвесанта, после чего город был переименован в Нью-Йорк (англ. Новый Йорк), в честь инициатора захвата — герцога Йоркского. По результатам Второй англо-голландской войны в 1667 году голландцы официально передали Нью-Йорк англичанам в обмен на колонию Суринам.На территории, где ныне расположен Нью-Йорк, задолго до появления здесь европейцев жили индейские племена Манахаттоу и Канарси.
+            .card-content
+              .chip Город
+              .chip Залив
+              .chip Вечер
+            .card-action.right-align
+              a.activator(href='#') Подробнее
+              a.btn(href='./order.html') Заказать - 500р
+          
+        .col.l4.m6.s12
+          .card.hoverable
+            .card-image
+              img(src='./images/pic4.jpg')
+              span.card-title.activator Триумфальная арка
+                i.material-icons.right more_horiz              
+            .card-reveal
+              span.card-title.activator Триумфальная арка
+                i.material-icons.right close
+              | Триумфальные арки возникли в Древнем Риме, где предназначались для церемонии торжественного въезда победителя. Из сохранившихся римских триумфальных арок наиболее известны арка Тита (81 г.), арка Септимия Севера (205 г.; обе в Риме) и арка Траяна (то же, что «Золотые ворота»; Беневент, 114-117 гг.); из более поздних самая известная — арка Константина (Рим, 315 г.). Изображения триумфальных арок сохранились на многих медалях, отчеканенных в честь побед Августа, Нерона и других.
+            .card-content
+              .chip Памятник
+            .card-action.right-align
+              a.activator(href='#') Подробнее
+              a.btn(href='./order.html') Заказать - 200р

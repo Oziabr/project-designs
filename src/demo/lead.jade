@@ -1,0 +1,24 @@
+extends layout
+block body
+  script.
+     //$( $('.dropdown-button').dropdown() )
+  .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+    .right техническая панель: Клиент
+    div
+      span
+        a.breadcrumb(href="/lead.html") Lead
+      span
+        a.breadcrumb(href="#") 
+        a.breadcrumb(href="/") Landing
+        a.breadcrumb(href="/search.html") Search
+        a.breadcrumb(href="/order.html") Order
+        a.breadcrumb(href="/payment.html") Payment
+        a.breadcrumb(href="/order-history.html") Orders History
+        a.breadcrumb(href="#") 
+  .container
+    .section
+      h5.center Lead
+      p.flow-text
+        | Не является страницей приложения. Это любое место, содержащее ссылку на проект: реклама,
+        | страница в соцсетях, поисковая выдача, etc.
+      .row.center: a.btn-large.waves-effect.waves-light(class=colorTwo, href='/') Перейти в приложение

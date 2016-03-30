@@ -1,0 +1,52 @@
+include mixin
+- var colorOne = 'light-blue'
+- var colorTwo = 'orange'
+- var colorThree = 'green'
+- var colorFour = 'purple'
+doctype html
+html(ng-app="designs")
+  head
+    meta(charset="utf-8")
+    title Conveyor Demo
+    // bower:css
+    link(rel="stylesheet", href="../../try/vendor-fcf27bd416.css")
+    // endbower
+    // bower:js
+    script(src="../../try/vendor-cc715397cd.js")
+    // endbower
+
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    style.
+      .icon-block { padding: 0 15px; }
+      .icon-block .material-icons { font-size: inherit; }
+  body
+    script.
+      angular.module('designs', [
+        'ngAnimate',
+        'ngSanitize',
+        'ngMessages',
+        'restangular',
+        'ui.router',
+        'ngMaterial',
+        'toastr'])
+    block body
+    //- footer.page-footer(class=colorTwo)
+    //-   .container
+    //-     .row
+    //-       .col.l6.s12
+    //-         h5.white-text Контакты
+    //-         ul.grey-text.text-lighten-4
+    //-           li +7 (495) 760-52-50
+    //-           li: a.white-text(href="mailto:info@rsgs.pro") info@rsgs.pro
+    //-       .col.l3.s12
+    //-         h5.white-text Settings
+    //-         ul
+    //-           li: a.white-text(href='#!') Link 1
+    //-       .col.l3.s12
+    //-         h5.white-text Connect
+    //-         ul
+    //-           li: a.white-text(href='#!') Link 1
+    //-   .footer-copyright
+    //-     .container
+    //-       | Made by 
+    //-       a.text-lighten-3(class="#{colorTwo}-text", href='http://materializecss.com') Materialize

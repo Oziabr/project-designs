@@ -1,0 +1,23 @@
+extends layout
+block body
+  script.
+     //$( $('.dropdown-button').dropdown() )
+  .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+    .right техническая панель: Клиент
+    div
+      span
+        a.breadcrumb(href="./lead.html") Lead
+        a.breadcrumb(href="./") Landing
+        a.breadcrumb(href="./search.html") Search
+        a.breadcrumb(href="./order.html") Order
+        a.breadcrumb(href="./payment.html") Payment
+      span
+        a.breadcrumb(href="#") 
+        a.breadcrumb(href="./order-history.html") Orders History
+        a.breadcrumb(href="#") 
+  .container
+    .section
+      h5.center Payment
+      p.flow-text
+        | Также не является страницей приложения. Это страница сервиса приёма платежей.
+      .row.center: a.btn-large.waves-effect.waves-light(class=colorTwo, href='./') Завершить платёж

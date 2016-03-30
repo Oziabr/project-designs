@@ -1,0 +1,49 @@
+extends layout
+block body
+  style.
+    div#day_group .md-icon-button.md-button { margin: 0px }
+  .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+    .right техническая панель: Клиент
+    div
+      span
+        a.breadcrumb(href="./lead.html") Lead
+        a.breadcrumb(href="./") Landing
+        a.breadcrumb(href="./search.html") Search
+        a.breadcrumb(href="./order.html") Order
+      span
+        a.breadcrumb(href="#") 
+        a.breadcrumb(href="./payment.html") Payment
+        a.breadcrumb(href="./order-history.html") Orders History
+        a.breadcrumb(href="#") 
+
+  +navbar-unresponsive('Заказ "Золотые ворота (мост)"', './').lighten-1(class=colorOne)
+    li
+      a.dropdown-button(data-activates='login_drop', href='#') Войти
+      ul#login_drop.dropdown-content
+        li: a(href="#!") Facebook
+        li: a(href="#!") Gmail
+        li: a(href="#!") ВК        
+  .container
+    
+    .section
+      .row
+
+        .col.l3
+          img.responsive-img(src='./images/pic2.jpg')
+        .col.l9
+          div
+            table
+              thead: tr
+                th Название
+                th Стоимость
+                th Посетителей
+                th Итог
+              tbody: tr
+                td Золотые ворота (мост)
+                td 350р
+                td: input(ng-init='qty=1', ng-model='qty', type='number', max='15')
+                th: span(ng-if='qty') {{350*qty}}p
+          div
+            a.btn-flat(href='./search.html') Отказаться
+            
+            a.btn.right(href='./payment.html', class=colorTwo) Оплатить
