@@ -15,7 +15,7 @@ block body
         a.breadcrumb(href="#") 
 
   +navbar-unresponsive('Главная страница', './index.html').lighten-1(class=colorOne)
-    li: a.waves-effect.waves-light.modal-trigger(href="#login-box") Войти
+    li: a.waves-effect.waves-light.modal-trigger(data-target="login-box") Войти
   +login-box
   
   #index-banner.section.no-pad-bot
