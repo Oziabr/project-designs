@@ -39,3 +39,47 @@ mixin navbar-unresponsive(title, href)
       a#logo-container.brand-logo(href=href)= title
       ul.right
         block
+
+mixin footer
+  footer.page-footer(class=colorTwo)
+    .container
+      .row
+        .col.l6.s12
+          h5.white-text Контакты
+          ul.grey-text.text-lighten-4
+            li Juneau Ltd.
+            li: a.white-text(href="mailto:mail@srv.tld") mail@srv.tld
+            li +7 (495) 123-45-67
+        .col.l3.offset-l3.s12
+          h5.white-text Хз как это должно работать
+          ul.fa-ul
+            li: a.white-text(href='#!')
+              i.fa.fa-li.fa-facebook
+              | Facebook
+            li: a.white-text(href='#!')
+              i.fa.fa-li.fa-vk
+              | ВКонтакт
+    .footer-copyright
+      .container
+        | Сделано 
+        a.text-lighten-3(class="#{colorTwo}-text", href='http://materializecss.com') на коленке
+
+mixin login-box
+  script.
+    jQuery( function() { $('.modal-trigger').leanModal(); });
+  style.
+    #login-box { width: 240px; } 
+  #login-box.modal.center-align
+    .modal-content
+      i.large.material-icons(class="#{colorOne}-text") account_circle
+      p: a.btn(class=colorOne, style='display: block')
+        i.fa.fa-vk
+        |  Вконтакт
+      p: a.btn(class=colorOne, style='display: block')
+        i.fa.fa-facebook
+        |  Facebook
+      p: a.btn(class=colorOne, style='display: block')
+        i.fa.fa-envelope
+        |  Gmail
+    .modal-footer
+      a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Отказаться

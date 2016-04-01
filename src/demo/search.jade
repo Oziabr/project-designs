@@ -7,7 +7,7 @@ block body
     div
       span
         a.breadcrumb(href="./lead.html") Lead
-        a.breadcrumb(href="./") Landing
+        a.breadcrumb(href="./index.html") Landing
         a.breadcrumb(href="./search.html") Search
       span
         a.breadcrumb(href="#")
@@ -16,19 +16,15 @@ block body
         a.breadcrumb(href="./order-history.html") Orders History
         a.breadcrumb(href="#") 
 
-  +navbar-unresponsive('Поиск в "Moscow, ID"', './').lighten-1(class=colorOne)
-    li
-      a.dropdown-button(data-activates='login_drop', href='#') Войти
-      ul#login_drop.dropdown-content
-        li: a(href="#!") Facebook
-        li: a(href="#!") Gmail
-        li: a(href="#!") ВК        
+  +navbar-unresponsive('Поиск в "Moscow, ID"', './index.html').lighten-1(class=colorOne)
+    li: a.waves-effect.waves-light.modal-trigger(href="#login-box") Войти
+  +login-box
+   
   .container
     .section
       .row
-        .col.s3
-          h5 Дни
-          div#day_group
+        .input-field.col.s3
+          div#day_group(style='margin-top: 40px')
             md-button.md-icon-button.md-raised ПН
             md-button.md-icon-button.md-raised ВТ
             md-button.md-icon-button.md-raised.md-warn СР
@@ -36,15 +32,16 @@ block body
             md-button.md-icon-button.md-raised.md-warn ПТ
             md-button.md-icon-button.md-raised СБ
             md-button.md-icon-button.md-raised ВС
-        .col.s3
-          h5 Рейтинг
-          md-slider(md-discrete, ng-model="rating", step="1", min="1", max="5", aria-label="rating")
-        .col.s3
-          h5 Стоимость
-          md-slider(md-discrete, ng-model="price", step="100", min="100", max="1500", aria-label="price")
-        .col.s3
-          h5 Длительность
-          md-slider(md-discrete, ng-model="duration", step="0.5", min="1", max="8", aria-label="duration")
+          label(for="day_group") Дни недели
+        .input-field.col.s3
+          md-slider#rating(style='margin-top: 50px', md-discrete, ng-model="rating", step="1", min="1", max="5", aria-label="rating")
+          label(for="rating") Рейтинг
+        .input-field.col.s3
+          md-slider#price(style='margin-top: 50px', md-discrete, ng-model="price", step="100", min="100", max="1500", aria-label="price")
+          label(for="price") Стоимость
+        .input-field.col.s3
+          md-slider#duration(style='margin-top: 50px', md-discrete, ng-model="duration", step="0.5", min="1", max="8", aria-label="duration")
+          label(for="duration") Длительность
       .row
         .input-field.col.s12
           i.material-icons.prefix search
@@ -71,7 +68,7 @@ block body
               .chip Трамвай
               .chip Транспорт
             .card-action.right-align
-              a.activator(href='#') Подробнее
+              a.activator(href='javascript:void();') Подробнее
               a.btn(href='./order.html') Заказать - 1500р
 
         .col.l4.m6.s12
@@ -90,7 +87,7 @@ block body
               .chip Панорама
               .chip Обзор
             .card-action.right-align
-              a.activator(href='#') Подробнее
+              a.activator(href='javascript:void();') Подробнее
               a.btn(href='./order.html') Заказать - 1000р
 
         .col.l4.m6.s12
@@ -109,7 +106,7 @@ block body
               .chip Мосты
               .chip Транспорт
             .card-action.right-align
-              a.activator(href='#') Подробнее
+              a.activator(href='javascript:void();') Подробнее
               a.btn(href='./order.html') Заказать - 350р
           
         .col.l4.m6.s12
@@ -127,7 +124,7 @@ block body
               .chip Залив
               .chip Вечер
             .card-action.right-align
-              a.activator(href='#') Подробнее
+              a.activator(href='javascript:void();') Подробнее
               a.btn(href='./order.html') Заказать - 500р
           
         .col.l4.m6.s12
@@ -143,5 +140,7 @@ block body
             .card-content
               .chip Памятник
             .card-action.right-align
-              a.activator(href='#') Подробнее
+              a.activator(href='javascript:void();') Подробнее
               a.btn(href='./order.html') Заказать - 200р
+
+  +footer

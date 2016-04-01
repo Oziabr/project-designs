@@ -1,13 +1,11 @@
 extends layout
 block body
-  script.
-     //$( $('.dropdown-button').dropdown() )
   .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
     .right техническая панель: Клиент
     div
       span
         a.breadcrumb(href="./lead.html") Lead
-        a.breadcrumb(href="./") Landing
+        a.breadcrumb(href="./index.html") Landing
       span
         a.breadcrumb(href="#") 
         a.breadcrumb(href="./search.html") Search
@@ -16,13 +14,10 @@ block body
         a.breadcrumb(href="./order-history.html") Orders History
         a.breadcrumb(href="#") 
 
-  +navbar-unresponsive('Главная страница', './').lighten-1(class=colorOne)
-    li
-      a.dropdown-button(data-activates='login_drop', href='#') Войти
-      ul#login_drop.dropdown-content
-        li: a(href="#!") Facebook
-        li: a(href="#!") Gmail
-        li: a(href="#!") ВК
+  +navbar-unresponsive('Главная страница', './index.html').lighten-1(class=colorOne)
+    li: a.waves-effect.waves-light.modal-trigger(href="#login-box") Войти
+  +login-box
+  
   #index-banner.section.no-pad-bot
     .container
       br
@@ -63,3 +58,7 @@ block body
     br
     br
     .section
+      h2.header.center(class="#{colorTwo}-text") Есть что предложить?
+      .row.center: a#download-button.btn-large.waves-effect.waves-light(class=colorOne, href='./login.html')
+        | Хочу разместить
+  +footer

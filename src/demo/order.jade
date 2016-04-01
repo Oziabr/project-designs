@@ -7,7 +7,7 @@ block body
     div
       span
         a.breadcrumb(href="./lead.html") Lead
-        a.breadcrumb(href="./") Landing
+        a.breadcrumb(href="./index.html") Landing
         a.breadcrumb(href="./search.html") Search
         a.breadcrumb(href="./order.html") Order
       span
@@ -16,18 +16,16 @@ block body
         a.breadcrumb(href="./order-history.html") Orders History
         a.breadcrumb(href="#") 
 
-  +navbar-unresponsive('Заказ "Золотые ворота (мост)"', './').lighten-1(class=colorOne)
-    li
-      a.dropdown-button(data-activates='login_drop', href='#') Войти
-      ul#login_drop.dropdown-content
-        li: a(href="#!") Facebook
-        li: a(href="#!") Gmail
-        li: a(href="#!") ВК        
+  +navbar-unresponsive('Заказ "Золотые ворота (мост)"', './index.html').lighten-1(class=colorOne)
+    li: a.waves-effect.waves-light.modal-trigger(href="#login-box") Войти
+  +login-box
+  
   .container
     
     .section
+      br
+      br
       .row
-
         .col.l3
           img.responsive-img(src='./images/pic2.jpg')
         .col.l9
@@ -47,3 +45,7 @@ block body
             a.btn-flat(href='./search.html') Отказаться
             
             a.btn.right(href='./payment.html', class=colorTwo) Оплатить
+      br
+      br
+      br
+  +footer
