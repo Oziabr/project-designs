@@ -4,6 +4,10 @@ path = $ 'path'
 gulp = $ 'gulp'
 conf = $ './conf'
 
+gulp.task 'build', [ 'inject', 'prepare' ]
+
+gulp.task 'prepare', [ 'scripts', 'styles' ]
+
 gulp.task 'compile', ->
   gulp.src [ '!src/demo/{mixin,layout}.jade', 'src/demo/**/*.jade' ]
   .pipe    $('gulp-consolidate') 'jade',
@@ -14,8 +18,7 @@ gulp.task 'compile', ->
   .pipe gulp.dest 'demo'
   # .pipe conf.bSync.stream()
 
-# gulp.task 'inject', ['scripts', 'styles', 'images', 'compile'], ->
-gulp.task 'inject', ->
+gulp.task 'inject', [ 'images', 'compile' ], ->
   gulp.src 'demo/**/*.html'
   .pipe    $('gulp-inject') (gulp.src 'demo/*.js', read: false), starttag: '<!-- bower:js-->', endtag: '<!-- endbower-->', relative: true
   .pipe    $('gulp-inject') (gulp.src 'demo/*.css',read: false), starttag: '<!-- bower:css-->',endtag: '<!-- endbower-->', relative: true
