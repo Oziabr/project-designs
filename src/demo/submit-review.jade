@@ -1,0 +1,45 @@
+extends layout
+block body
+  style.
+    div#day_group .md-icon-button.md-button { margin: 0px }
+  header
+    .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+      .right техническая панель: Клиент
+      div
+        span
+          a.breadcrumb(href="./lead.html") Lead
+          a.breadcrumb(href="./index.html") Landing
+          a.breadcrumb(href="./search.html") Search
+          a.breadcrumb(href="./order.html") Order
+          a.breadcrumb(href="./payment.html") Payment
+          a.breadcrumb(href="./order-history.html") Orders History
+          a.breadcrumb(href="./reminder.html") Reminder
+          a.breadcrumb(href="./submit-review.html") Review
+        span
+          a.breadcrumb(href="#") 
+
+    +navbar-unresponsive('Оценка для "Триумфальная арка"', './index.html').lighten-1(class=colorOne)
+      li
+        a.valign-wrapper.waves-effect.waves-light.modal-trigger(data-target="user-box")
+          img.responsive-img.valign.circle(style='width: 50px', src='./images/upic_0.jpg')
+  main
+    +login-box
+     
+    .container
+      .section
+        h5 Оценитe
+        .row
+          .input-field.col.s6
+            md-slider#rating(style='margin-top: 50px', md-discrete, ng-model="entertaining", step="1", min="1", max="5", aria-label="rating")
+            label(for="entertaining") Увлекательность
+          .input-field.col.s6
+            md-slider#price(style='margin-top: 50px', md-discrete, ng-model="handiness", step="1", min="1", max="5", aria-label="price")
+            label(for="handiness") Удобство
+      .section
+        h5 Оставьте отзыв
+        .row: .input-field.col.s12
+          textarea#description.materialize-textarea
+          label(for="description") Краткое описание      
+      .section
+        a.btn(class=colorOne, href='./order-history.html') Отправить
+  +footer

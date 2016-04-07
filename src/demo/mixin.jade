@@ -41,8 +41,12 @@ mixin navbar-unresponsive(title, href)
         block
 
 mixin footer
-  footer.page-footer(class=colorTwo)
+  footer.page-footer(class=colorTwo, style='padding-top: 0;')
+    style.
+      body { display: flex; min-height: 100vh; flex-direction: column; }
+      main { flex: 1; }
     .container
+      br
       .row
         .col.l6.s12
           h5.white-text Контакты
@@ -51,7 +55,7 @@ mixin footer
             li: a.white-text(href="mailto:mail@srv.tld") mail@srv.tld
             li +7 (495) 123-45-67
         .col.l3.offset-l3.s12
-          h5.white-text Хз как это должно работать
+          h5.white-text Поделиться
           ul.fa-ul
             li: a.white-text(href='#!')
               i.fa.fa-li.fa-facebook
@@ -83,3 +87,16 @@ mixin login-box
         |  Gmail
     .modal-footer
       a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Отказаться
+
+mixin user-box
+  script.
+    jQuery( function() { $('.modal-trigger').leanModal(); });
+  style.
+    #user-box { width: 240px; } 
+  #user-box.modal.center-align
+    .modal-content
+      img.responsive-img.circle(src='./images/upic_0.jpg')
+      p.flow-text Landen
+      p.flow-text Schaden
+    .modal-footer
+      a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn Выйти

@@ -1,64 +1,68 @@
 extends layout
 block body
-  .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
-    .right техническая панель: Клиент
-    div
-      span
-        a.breadcrumb(href="./lead.html") Lead
-        a.breadcrumb(href="./index.html") Landing
-      span
-        a.breadcrumb(href="#") 
-        a.breadcrumb(href="./search.html") Search
-        a.breadcrumb(href="./order.html") Order
-        a.breadcrumb(href="./payment.html") Payment
-        a.breadcrumb(href="./order-history.html") Orders History
-        a.breadcrumb(href="#") 
+  header
+    .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+      .right техническая панель: Клиент
+      div
+        span
+          a.breadcrumb(href="./lead.html") Lead
+          a.breadcrumb(href="./index.html") Landing
+        span
+          a.breadcrumb(href="#") 
+          a.breadcrumb(href="./search.html") Search
+          a.breadcrumb(href="./order.html") Order
+          a.breadcrumb(href="./payment.html") Payment
+          a.breadcrumb(href="./order-history.html") Orders History
+          a.breadcrumb(href="./reminder.html") Reminder
+          a.breadcrumb(href="./submit-review.html") Review
+          a.breadcrumb(href="#")
 
-  +navbar-unresponsive('Главная страница', './index.html').lighten-1(class=colorOne)
-    li: a.waves-effect.waves-light.modal-trigger(data-target="login-box") Войти
-  +login-box
-  
-  #index-banner.section.no-pad-bot
+    +navbar-unresponsive('Главная страница', './index.html').lighten-1(class=colorOne)
+      li: a.waves-effect.waves-light.modal-trigger(data-target="login-box") Войти
+  main
+    +login-box
+    
+    #index-banner.section.no-pad-bot
+      .container
+        br
+        br
+        h1.header.center(class="#{colorTwo}-text") Бросающийся в глаза заголовок
+        .row
+          .input-field.col.s8.offset-s2
+            i.material-icons.prefix search
+            input#search.validate(type="text")
+            label(for="search") Ищите по названию города, или по интересующей теме
+        .row.center: a#download-button.btn-large.waves-effect.waves-light(class=colorTwo, href='./search.html')
+          | Сделать хорошо
     .container
+      .section
+        .row
+          .col.s12.l4
+            .icon-block
+              h2.center(class="#{colorOne}-text"): i.material-icons flash_on
+              h5.center Находчивость и оперативность
+              p.light
+                | Ad voluptatem dignissimos quidem. Accusamus natus quas. Harum vitae tempore adipisci aut
+                | laudantium quae quo. Est aut id voluptatem molestiae sit. Voluptas veritatis consequuntur
+                | neque iusto odio dolor inventore. Repellat beatae placeat aspernatur officia.
+          .col.s12.l4
+            .icon-block
+              h2.center(class="#{colorOne}-text"): i.material-icons group
+              h5.center Новые друзья
+              p.light
+                | Sit perspiciatis possimus consectetur occaecati qui aut. Sed sapiente et dolore cumque qui
+                | sint. Voluptates ratione aperiam eius nesciunt. Rem ducimus tempore in. Quam enim eos. Id
+                | ut dignissimos aut beatae est est aspernatur eius impedit.
+          .col.s12.l4
+            .icon-block
+              h2.center(class="#{colorOne}-text"): i.material-icons settings
+              h5.center Работает как часы
+              p.light
+                | Impedit sint porro rem dolor sit quidem. Natus quis aut veniam neque.
       br
       br
-      h1.header.center(class="#{colorTwo}-text") Бросающийся в глаза заголовок
-      .row
-        .input-field.col.s8.offset-s2
-          i.material-icons.prefix search
-          input#search.validate(type="text")
-          label(for="search") Ищите по названию города, или по интересующей теме
-      .row.center: a#download-button.btn-large.waves-effect.waves-light(class=colorTwo, href='./search.html')
-        | Сделать хорошо
-  .container
-    .section
-      .row
-        .col.s12.l4
-          .icon-block
-            h2.center(class="#{colorOne}-text"): i.material-icons flash_on
-            h5.center Находчивость и оперативность
-            p.light
-              | Ad voluptatem dignissimos quidem. Accusamus natus quas. Harum vitae tempore adipisci aut
-              | laudantium quae quo. Est aut id voluptatem molestiae sit. Voluptas veritatis consequuntur
-              | neque iusto odio dolor inventore. Repellat beatae placeat aspernatur officia.
-        .col.s12.l4
-          .icon-block
-            h2.center(class="#{colorOne}-text"): i.material-icons group
-            h5.center Новые друзья
-            p.light
-              | Sit perspiciatis possimus consectetur occaecati qui aut. Sed sapiente et dolore cumque qui
-              | sint. Voluptates ratione aperiam eius nesciunt. Rem ducimus tempore in. Quam enim eos. Id
-              | ut dignissimos aut beatae est est aspernatur eius impedit.
-        .col.s12.l4
-          .icon-block
-            h2.center(class="#{colorOne}-text"): i.material-icons settings
-            h5.center Работает как часы
-            p.light
-              | Impedit sint porro rem dolor sit quidem. Natus quis aut veniam neque.
-    br
-    br
-    .section
-      h2.header.center(class="#{colorTwo}-text") Есть что предложить?
-      .row.center: a#download-button.btn-large.waves-effect.waves-light(class=colorOne, href='./login.html')
-        | Хочу разместить
+      .section
+        h2.header.center(class="#{colorTwo}-text") Есть что предложить?
+        .row.center: a#download-button.btn-large.waves-effect.waves-light(class=colorOne, href='./login.html')
+          | Хочу разместить
   +footer

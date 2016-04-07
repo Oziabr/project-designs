@@ -1,0 +1,31 @@
+<!DOCTYPE html><html ng-app="designs"><head><meta charset="utf-8"><title>Conveyor Demo</title><!-- bower:css--><link rel="stylesheet" href="vendor-4509377a66.css"><link rel="stylesheet" href="vendor-d2c70d091a.css"><!-- endbower--><!-- bower:js--><script src="vendor-afe20d4221.js"></script><!-- endbower--><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><style>.icon-block { padding: 0 15px; }
+.icon-block .material-icons { font-size: inherit; }</style></head><body><script>angular.module('designs', [
+  'ngAnimate',
+  'ngSanitize',
+  'ngMessages',
+  'restangular',
+  'ui.router',
+  'ngMaterial',
+  'toastr'])</script><header><script>moment.locale('ru');
+angular.module('designs').controller('dates', function($scope) {
+  $scope.var = 'sfd';
+  $scope.day3 = [
+    moment().add(3, 'days').startOf('day').add(19, 'hours').calendar(),
+    moment().add(3, 'days').format('L'),
+    moment().add(3, 'days').format('dd') ];
+  $scope.day1 = [
+    moment().add(1, 'days').startOf('day').add(15, 'hours').calendar(),
+    moment().add(1, 'days').format('L'),
+    moment().add(1, 'days').format('dd') ];
+  $scope.day_10 = [
+    moment().add(-10, 'days').startOf('day').add(15, 'hours').calendar(),
+    moment().add(-10, 'days').format('L'),
+    moment().add(-10, 'days').format('dd') ];
+  $scope.day_50 = [
+    moment().add(-50, 'days').startOf('day').add(15, 'hours').calendar(),
+    moment().add(-50, 'days').format('L'),
+    moment().add(-50, 'days').format('dd') ];
+});
+</script><div class="navbar-fixed"><nav class="grey darken-1"><div class="nav-wrapper container"><div class="right">техническая панель: Клиент</div><div><span><a href="./lead.html" class="breadcrumb">Lead</a><a href="./index.html" class="breadcrumb">Landing</a><a href="./search.html" class="breadcrumb">Search</a><a href="./order.html" class="breadcrumb">Order</a><a href="./payment.html" class="breadcrumb">Payment</a><a href="./order-history.html" class="breadcrumb">Orders History</a></span><span><a href="#" class="breadcrumb"> </a><a href="./reminder.html" class="breadcrumb">Reminder</a><a href="./submit-review.html" class="breadcrumb">Review</a><a href="#" class="breadcrumb"> </a></span></div></div></nav></div><nav role="navigation" class="lighten-1 light-blue"><div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo">История заказов</a><ul class="right"><li><a data-target="user-box" class="valign-wrapper waves-effect waves-light modal-trigger"><img style="width: 50px" src="./images/upic_0.jpg" class="responsive-img valign circle"></a></li></ul></div></nav></header><main><script>jQuery( function() { $('.modal-trigger').leanModal(); });</script><style>#user-box { width: 240px; } </style><div id="user-box" class="modal center-align"><div class="modal-content"><img src="./images/upic_0.jpg" class="responsive-img circle"><p class="flow-text">Landen</p><p class="flow-text">Schaden</p></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect waves-green btn">Выйти</a></div></div><style>table.highlight > tbody > tr > td:first-child { padding: 5px 5px 0px; }
+table.highlight > tbody > tr > td:last-child { width: 10px; }</style><div class="container"><table ng-controller="dates" class="highlight"><thead><tr><th class="orange-text">Активные</th><th>Название</th><th>Дата</th><th>Статус</th><th></th></tr></thead><tbody><tr><td><img style="width: 75px" src="./images/pic0.jpg" class="responsive-img"></td><td><div class="orange-text"><strong>Городской трамвай</strong></div><div>м. Чистые Пруды</div></td><td><div>{{day3[0]}}</div><div>{{day3[1]}} {{day3[2] | uppercase}}</div></td><td><div class="chip white-text orange">оплачен</div></td><td class="center-align"><a class="btn-flat">Отменить</a></td></tr><tr><td><img style="width: 75px" src="./images/pic1.jpg" class="responsive-img"></td><td><div class="orange-text"><strong>Смотровая площадка</strong></div><div>м. Воробьёвы Горы</div></td><td><div>{{day1[0]}}</div><div>{{day1[1]}} {{day1[2] | uppercase}}</div></td><td><div class="chip white-text light-blue">выбран</div></td><td class="center-align"><a class="btn-flat">Отменить</a></td></tr><tr><td><img style="width: 75px" src="./images/pic2.jpg" class="responsive-img"></td><td><div class="orange-text"><strong>Золотые ворота (мост)</strong></div><div>San Francisco, CA</div></td><td><div>ПТ 19:00</div><div>BC 12:00, 15:00, 19:00</div></td><td><div class="chip white-text light-blue darken-3">шортлист</div></td><td class="center-align"><a class="btn-flat">Заказать</a></td></tr></tbody><thead><tr><th class="light-blue-text">Архив</th><th>Название</th><th>Дата</th><th>Статус</th></tr></thead><tbody><tr><td><img style="width: 75px" src="./images/pic3.jpg" class="responsive-img"></td><td>Дальний берег</td><td><div>{{day_10[0]}}</div></td><td><div class="chip">не&nbsp;оценен</div></td><td class="center-align"><a href="./submit-review.html" class="btn">Оценить</a></td></tr><tr><td><img style="width: 75px" src="./images/pic4.jpg" class="responsive-img"></td><td>Триумфальная арка</td><td><div>{{day_50[0]}}</div></td><td><div class="chip white-text light-blue darken-3">4 балла</div></td><td class="center-align"><a class="btn-flat">Просмотреть</a></td></tr></tbody></table></div></main><footer style="padding-top: 0;" class="page-footer orange"><style>body { display: flex; min-height: 100vh; flex-direction: column; }
+main { flex: 1; }</style><div class="container"><br><div class="row"><div class="col l6 s12"><h5 class="white-text">Контакты</h5><ul class="grey-text text-lighten-4"><li>Juneau Ltd.</li><li><a href="mailto:mail@srv.tld" class="white-text">mail@srv.tld</a></li><li>+7 (495) 123-45-67</li></ul></div><div class="col l3 offset-l3 s12"><h5 class="white-text">Поделиться</h5><ul class="fa-ul"><li><a href="#!" class="white-text"><i class="fa fa-li fa-facebook"></i>Facebook</a></li><li><a href="#!" class="white-text"><i class="fa fa-li fa-vk"></i>ВКонтакт</a></li></ul></div></div></div><div class="footer-copyright"><div class="container">Сделано <a href="http://materializecss.com" class="text-lighten-3 orange-text">на коленке</a></div></div></footer></body></html>

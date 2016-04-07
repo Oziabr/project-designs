@@ -1,0 +1,149 @@
+extends layout
+block body
+  
+  header
+    script.
+      moment.locale('ru');
+      angular.module('designs').controller('dates', function($scope) {
+        $scope.var = 'sfd';
+        $scope.day3 = [
+          moment().add(3, 'days').startOf('day').add(19, 'hours').calendar(),
+          moment().add(3, 'days').format('L'),
+          moment().add(3, 'days').format('dd') ];
+        $scope.day1 = [
+          moment().add(1, 'days').startOf('day').add(15, 'hours').calendar(),
+          moment().add(1, 'days').format('L'),
+          moment().add(1, 'days').format('dd') ];
+        $scope.day_10 = [
+          moment().add(-10, 'days').startOf('day').add(15, 'hours').calendar(),
+          moment().add(-10, 'days').format('L'),
+          moment().add(-10, 'days').format('dd') ];
+        $scope.day_50 = [
+          moment().add(-50, 'days').startOf('day').add(15, 'hours').calendar(),
+          moment().add(-50, 'days').format('L'),
+          moment().add(-50, 'days').format('dd') ];
+      });
+    
+    .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+      .right техническая панель: Клиент
+      div
+        span
+          a.breadcrumb(href="./lead.html") Lead
+          a.breadcrumb(href="./index.html") Landing
+          a.breadcrumb(href="./search.html") Search
+          a.breadcrumb(href="./order.html") Order
+          a.breadcrumb(href="./payment.html") Payment
+          a.breadcrumb(href="./order-history.html") Orders History
+        span
+          a.breadcrumb(href="#") 
+          a.breadcrumb(href="./reminder.html") Reminder
+          a.breadcrumb(href="./submit-review.html") Review
+          a.breadcrumb(href="#") 
+
+    +navbar-unresponsive('История заказов', './index.html').lighten-1(class=colorOne)
+      li
+        a.valign-wrapper.waves-effect.waves-light.modal-trigger(data-target="user-box")
+          img.responsive-img.valign.circle(style='width: 50px', src='./images/upic_0.jpg')
+  main
+    +user-box
+    style.
+      table.highlight > tbody > tr > td:first-child { padding: 5px 5px 0px; }
+      table.highlight > tbody > tr > td:last-child { width: 10px; }
+    .container
+      table.highlight(ng-controller='dates')
+        thead: tr
+          th(class="#{colorTwo}-text") Активные
+          th Название
+          th Дата
+          th Статус
+          th
+        tbody
+          tr
+            td: img.responsive-img(style='width: 75px', src="./images/pic0.jpg")
+            td
+              div(class="#{colorTwo}-text"): strong Городской трамвай
+              div м. Чистые Пруды
+            td
+              div {{day3[0]}}
+              div {{day3[1]}} {{day3[2] | uppercase}}
+            td: .chip.white-text(class=colorTwo) оплачен
+            td.center-align: a.btn-flat Отменить
+          tr
+            td: img.responsive-img(style='width: 75px', src="./images/pic1.jpg")
+            td
+              div(class="#{colorTwo}-text"): strong Смотровая площадка
+              div м. Воробьёвы Горы
+            td
+              div {{day1[0]}}
+              div {{day1[1]}} {{day1[2] | uppercase}}
+            td: .chip.white-text(class=colorOne) выбран
+            td.center-align: a.btn-flat Отменить
+          tr
+            td: img.responsive-img(style='width: 75px', src="./images/pic2.jpg")
+            td
+              div(class="#{colorTwo}-text"): strong Золотые ворота (мост)
+              div San Francisco, CA
+            td
+              div ПТ 19:00
+              div BC 12:00, 15:00, 19:00
+            td: .chip.white-text(class=colorOne).darken-3 шортлист
+            td.center-align: a.btn-flat Заказать
+        thead: tr
+          th(class="#{colorOne}-text") Архив
+          th Название
+          th Дата
+          th Статус
+        tbody
+          tr
+            td: img.responsive-img(style='width: 75px', src="./images/pic3.jpg")
+            td Дальний берег
+            td
+              div {{day_10[0]}}
+            td: .chip не&nbsp;оценен
+            td.center-align: a.btn(href='./submit-review.html') Оценить
+          tr
+            td: img.responsive-img(style='width: 75px', src="./images/pic4.jpg")
+            td Триумфальная арка
+            td
+              div {{day_50[0]}}
+            td: .chip.white-text(class=colorOne).darken-3 4 балла
+            td.center-align: a.btn-flat Просмотреть
+          
+
+    //- .container
+    //-   md-list
+    //-     md-subheader.md-no-sticky(class="#{colorTwo}-text") Активные
+    //-     md-list-item.noright.row
+    //-       .col.s2: img.responsive-img(style='width: ', src="./images/pic1.jpg")
+    //-       .col.s2 Золотые ворота (мост)
+    //-       .col.s2.offset-s2 через три дня
+    //-       .col.s4 
+    //-         md-checkbox.md-secondary
+    //-     md-list-item.row
+    //-       .col.s2: img.responsive-img(style='width: ', src="./images/pic2.jpg")
+    //-       .col.s2 Золотые ворота (мост)
+    //-       .col.s2.offset-s2 через три дня
+    //-       .col.s4 
+    //-         md-checkbox.md-secondary
+    //-     md-divider
+    //-     md-subheader.md-no-sticky(class="#{colorTwo}-text") История
+    //-     md-list-item.noright.row
+    //-       .col.s2: img.responsive-img(style='width: ', src="./images/pic3.jpg")
+    //-       .col.s2 Золотые ворота (мост)
+    //-       .col.s2.offset-s2 через три дня
+    //-       .col.s4 
+    //-         md-checkbox.md-secondary
+    //-     md-list-item.row
+    //-       .col.s2: img.responsive-img(style='width: ', src="./images/pic4.jpg")
+    //-       .col.s2 Золотые ворота (мост)
+    //-       .col.s2.offset-s2 через три дня
+    //-       .col.s4 
+    //-         md-checkbox.md-secondary    
+    //-     md-list-item.row
+    //-       .col.s2: img.responsive-img(style='width: ', src="./images/pic0.jpg")
+    //-       .col.s2 Золотые ворота (мост)
+    //-       .col.s2.offset-s2 через три дня
+    //-       .col.s4 
+    //-         md-checkbox.md-secondary    
+
+  +footer

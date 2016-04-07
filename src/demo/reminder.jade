@@ -1,0 +1,28 @@
+extends layout
+block body
+  script.
+     //$( $('.dropdown-button').dropdown() )
+  .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
+    .right техническая панель: Клиент
+    div
+      span
+        a.breadcrumb(href="./lead.html") Lead
+        a.breadcrumb(href="./index.html") Landing
+        a.breadcrumb(href="./search.html") Search
+        a.breadcrumb(href="./order.html") Order
+        a.breadcrumb(href="./payment.html") Payment
+        a.breadcrumb(href="./order-history.html") Orders History
+        a.breadcrumb(href="./reminder.html") Reminder
+      span
+        a.breadcrumb(href="#") 
+        a.breadcrumb(href="./submit-review.html") Review
+        a.breadcrumb(href="#") 
+  .container
+    .section
+      h3.center Reminder
+      p.flow-text.center Почтовое уведомление с напоминанием о возможности оценить и написать отзыв.
+      hr
+      br
+      br
+          
+      .row.center: a.btn-large.waves-effect.waves-light(class=colorTwo, href='./submit-review.html') К отзыву
