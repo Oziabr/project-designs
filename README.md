@@ -12,6 +12,6 @@
 
 ## Структура
 
-- src/demo/layout.jade - обёртка для страничек
-- src/demo/mixin.jade - компоненты
-- src/demo/[всё остальное].jade - страницы
+- `src/demo/layout.jade` - обёртка для страничек
+- `src/demo/mixin.jade` - компоненты
+- `src/demo/[всё остальное].jade` - страницы
