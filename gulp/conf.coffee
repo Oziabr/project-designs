@@ -1,6 +1,8 @@
 gutil = require('gulp-util')
 
-exports.browser = 'chromium-browser'
+# exports.browser = 'chromium-browser'
+exports.browser = 'qupzilla'
+exports.openBrowser = false
 
 exports.paths =
   src: 'src'

@@ -13,8 +13,11 @@ browserSyncInit = (baseDir, browser) ->
     startPath: '/index.html'
     server:
       baseDir: baseDir
-      routes: '/bower_components': 'bower_components'
+      routes:
+        '/bower_components': 'bower_components'
     browser: conf.browser
+    open: conf.openBrowser
+    port: 3030
   )
   return
 
