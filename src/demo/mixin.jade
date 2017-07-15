@@ -1,5 +1,4 @@
 mixin button(text, icon)
-  if click
   a.btn.btn-labeled&attributes(attributes)
     if text
       span.btn-label: i(class='fa fa-'+icon)
@@ -37,8 +36,7 @@ mixin navbar-unresponsive(title, href)
   nav&attributes(attributes)(role='navigation')
     .nav-wrapper.container
       a#logo-container.brand-logo(href=href)= title
-      ul.right
-        block
+      block
 
 mixin footer
   footer.page-footer(class=colorTwo, style='padding-top: 0;')

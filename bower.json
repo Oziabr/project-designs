@@ -26,8 +26,10 @@
     "angular-material": "^1.0.6",
     "angular-toastr": "^1.7.0",
     "animate.css": "^3.5.1",
-    "Materialize": "materialize#^0.97.5",
-    "components-font-awesome": "^4.5.0"
+    "Materialize": "materialize#^0.98.1",
+    "components-font-awesome": "^4.5.0",
+    "jquery-watch-dom": "^1.21.0",
+    "dom-to-image": "^2.5.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.2"

@@ -1,68 +1,168 @@
 extends layout
 block body
   header
-    .navbar-fixed: nav.grey.darken-1: .nav-wrapper.container
-      .right техническая панель: Клиент
-      div
-        span
-          a.breadcrumb(href="./lead.html") Lead
-          a.breadcrumb(href="./index.html") Landing
-        span
-          a.breadcrumb(href="#") 
-          a.breadcrumb(href="./search.html") Search
-          a.breadcrumb(href="./order.html") Order
-          a.breadcrumb(href="./payment.html") Payment
-          a.breadcrumb(href="./order-history.html") Orders History
-          a.breadcrumb(href="./reminder.html") Reminder
-          a.breadcrumb(href="./submit-review.html") Review
-          a.breadcrumb(href="#")
+    style.
+      #map, #sv {height: 500px}
+      nav .btn i {line-height: inherit}
+      label.label-fix4dropdown {left: 1rem !important}
+      .input-field input[type=search]:focus ~ label.label-fix4dropdown i {color: #444 !important}
+      #dropdown {opacity: 0.8 !important}
+      span.badge {position: relative !important; bottom: 34px; right: 5px;}
+      #modal.s2 {}
 
-    +navbar-unresponsive('Главная страница', './index.html').lighten-1(class=colorOne)
-      li: a.waves-effect.waves-light.modal-trigger(data-target="login-box") Войти
+    +navbar-unresponsive('', './index.html').lighten-1(class=colorOne)
+      ul: li: button.btn.dropdown-button.waves-effect.waves-light.btn.blue-text.text-darken-2.light-blue.lighten-4(data-activates="modes")
+        i.fa.fa-gear
+        |  mode
+      ul.right
+        li: a.waves-effect.waves-light.btn.blue-text.text-darken-2.light-blue.lighten-4: i.fa.fa-plus
+        li: a.waves-effect.waves-light.modal-trigger(data-target="login-box") Войти
+    ul#modes.dropdown-content
+      li: a(href="#!") one
+      li: a(href="javascript:console.log('lol'); void") two
+      li.divider
+      li: a(href="#!") two
+
+
+          
   main
-    +login-box
-    
-    #index-banner.section.no-pad-bot
-      .container
-        br
-        br
-        h1.header.center(class="#{colorTwo}-text") Бросающийся в глаза заголовок
+    .container: md-content(ng-controller='modeSwitch')
+      md-tabs.md-dynamic-height.md-border-bottom
+        md-tab(label="navigation", md-on-select='setMode(0)', md-active='mode == 0')
+        md-tab(label="discovery", md-on-select='setMode(1)', md-active='mode == 1')
+        md-tab(label="marking", md-on-select='setMode(2)', md-active='mode == 2')
+        
+    #modal.modal.bottom-sheet
+      .modal-content: .container
+        .input-field
+          input#search(type="search")
+          label.label-icon(for="search"): i.material-icons search
+        ul.tabs
+          li.tab: a.active: i.fa.fa-2x.fa-asterisk
+          li.tab: a: i.fa.fa-2x.fa-shopping-cart
+          li.tab: a: i.fa.fa-2x.fa-cutlery
+          li.tab: a: i.fa.fa-2x.fa-ticket
+          li.tab.right: a
+            i.fa.fa-2x.fa-cogs
+            |  search more
+          
         .row
-          .input-field.col.s8.offset-s2
-            i.material-icons.prefix search
-            input#search.validate(type="text")
-            label(for="search") Ищите по названию города, или по интересующей теме
-        .row.center: a#download-button.btn-large.waves-effect.waves-light(class=colorTwo, href='./search.html')
-          | Сделать хорошо
-    .container
-      .section
-        .row
-          .col.s12.l4
-            .icon-block
-              h2.center(class="#{colorOne}-text"): i.material-icons flash_on
-              h5.center Находчивость и оперативность
-              p.light
-                | Ad voluptatem dignissimos quidem. Accusamus natus quas. Harum vitae tempore adipisci aut
-                | laudantium quae quo. Est aut id voluptatem molestiae sit. Voluptas veritatis consequuntur
-                | neque iusto odio dolor inventore. Repellat beatae placeat aspernatur officia.
-          .col.s12.l4
-            .icon-block
-              h2.center(class="#{colorOne}-text"): i.material-icons group
-              h5.center Новые друзья
-              p.light
-                | Sit perspiciatis possimus consectetur occaecati qui aut. Sed sapiente et dolore cumque qui
-                | sint. Voluptates ratione aperiam eius nesciunt. Rem ducimus tempore in. Quam enim eos. Id
-                | ut dignissimos aut beatae est est aspernatur eius impedit.
-          .col.s12.l4
-            .icon-block
-              h2.center(class="#{colorOne}-text"): i.material-icons settings
-              h5.center Работает как часы
-              p.light
-                | Impedit sint porro rem dolor sit quidem. Natus quis aut veniam neque.
-      br
-      br
-      .section
-        h2.header.center(class="#{colorTwo}-text") Есть что предложить?
-        .row.center: a#download-button.btn-large.waves-effect.waves-light(class=colorOne, href='./login.html')
-          | Хочу разместить
+          .col.s2
+            img.z-depth-2.responsive-img(src='images/pub1.jpg')
+            span.badge.z-depth-1.white 150 m
+          .col.s2
+            img.z-depth-2.responsive-img(src='images/pub2.jpg')
+            span.badge.z-depth-1.white 500 m
+          .col.s2
+            img.z-depth-2.responsive-img(src='images/pub3.jpg')
+            span.badge.z-depth-1.white 1.2 km
+          .col.s2
+            img.z-depth-2.responsive-img(src='images/pub4.jpg')
+            span.badge.z-depth-1.white 1.8 km
+        p A bunch of text
+      .modal-footer
+        a(href="#!").modal-action.modal-close.waves-effect.waves-green.btn-flat Agree  
+    .row
+      .col.s6: .card: .card-content: #map
+      .col.s6: .card: .card-content: #sv
+
+
   +footer
+
+  style.
+    .dirty-tooltip { opacity: 1 !important}
+  script
+    :coffee
+      window.conf =
+        mode: 0
+      angular.module('designs')
+      .controller 'modeSwitch', ($scope) ->
+        $scope.mode = 0
+        $scope.setMode = (m) -> $scope.mode = conf.mode = m
+    
+      path = 'M86.072,50c0,19.922-16.15,36.072-36.072,36.072S13.928,69.922,13.928,50S30.078,13.928,50,13.928   S86.072,30.078,86.072,50z M50,21.049c-15.989,0-28.951,12.962-28.951,28.951S34.011,78.951,50,78.951S78.951,65.989,78.951,50   S65.989,21.049,50,21.049z M75.899,50c0,14.303-11.595,25.899-25.899,25.899S24.101,64.303,24.101,50S35.697,24.101,50,24.101   S75.899,35.697,75.899,50z M50,42.074c-4.377,0-7.926,3.548-7.926,7.926s3.548,7.926,7.926,7.926s7.926-3.548,7.926-7.926   S54.377,42.074,50,42.074z M59.827,57.392c-1.345,0-2.435,1.09-2.435,2.435s1.09,2.435,2.435,2.435s2.435-1.09,2.435-2.435   S61.172,57.392,59.827,57.392z M46.697,38.148l0.046-8.32c0,0-3.876,0.245-8.482,3.371c-4.964,3.369-6.525,7.523-6.525,7.523   l7.722,2.896c0,0,0.813-1.819,3.354-3.681C45.091,38.267,46.697,38.148,46.697,38.148z M38.515,45.41l-7.561-2.919   c0,0-0.846,1.378-1.08,3.185C29.578,47.952,29.552,49,29.552,49h8.111c0,0-0.023-0.711,0.184-1.745   C38.071,46.135,38.515,45.41,38.515,45.41z'
+    
+      $(document).ready ->
+        $('#modal').modal()
+    
+      elm = document.getElementById('map')
+      els = document.getElementById('sv')
+      
+      window.markers = {}
+      window.links = []
+      window.src = {}
+        
+      window.measure = (to, from) -> google.maps.geometry.spherical.computeDistanceBetween to.location.latLng, from.location.latLng
+      window.makePath = (x, y, r) -> "M #{x}, #{y} m -#{r}, 0 a #{r},#{r} 0 1,0 #{2*r},0 a #{r},#{r} 0 1,0 -#{2*r},0 z"
+      window.markTo = markTo = (map, dist, ang) =>
+        center = map.center || map.getLocation().latLng
+        new google.maps.Marker
+          position: google.maps.geometry.spherical.computeOffset center, dist, ang
+          map: map
+
+      window.initialize = ->
+        window.makeMarker = (map) -> new google.maps.Marker map: map
+        google.maps.Marker::changeIcon = (obj) -> this.setIcon _.extend (this.getIcon() || {}), obj
+                  
+        pos0 = new google.maps.LatLng 32.82183322789981, 34.99166011667967
+        window.svs = new google.maps.StreetViewService()
+
+        window.map = new google.maps.Map elm, {center: pos0, zoom: 18}
+        window.pan = new google.maps.StreetViewPanorama els,
+          position: pos0
+          pov: heading: 130, pitch: 0
+
+        map.addListener 'click', (e) ->
+          if conf.mode == 0
+            pan.setPosition e.latLng
+          if conf.mode == 1
+            svs.getPanorama location: e.latLng, (p, ok) => 
+              return console.log ok if ok != 'OK'
+              markit p
+          if conf.mode == 2
+            makeMarker(map).setPosition(e.latLng)
+        
+        (window.panMarker = makeMarker map).changeIcon path: path, scale: 0.4, anchor: (new google.maps.Point(50, 50)), fillColor: 'blue', fillOpacity: 1
+
+        do ->
+          last = false
+          pan.addListener 'position_changed', (e) ->
+            return if last == (pos = pan.getPosition())
+            map.setCenter pos
+            panMarker.setPosition pos
+            last = pos
+        
+        markit = (pano) ->
+          id = pano.location.pano
+          nm = markers[id] = makeMarker(map)
+          nm.setPosition pano.location.latLng
+          nm.setIcon path: makePath(0,0,2), strokeColor: 'darkGreen', strokeWeight: 2.5
+          nm.changeIcon strokeColor: 'darkBlue', strokeWeight: 5 if !pano.links.length
+
+          if pano.links.length
+            ls = nm.addListener 'click', (e) ->
+              pano.links.forEach (link) =>
+                return if markers[link.pano]
+                markers[link.pano] = 1
+                svs.getPanoramaById link.pano, (pano, ok) ->
+                  return throw new Error "Error geting panorama id #{} status #{ok}" if ok != 'OK'
+                  markit pano
+              ls.remove()
+              nm.changeIcon strokeColor: 'grey', fillOpacity: 0
+            google.maps.event.trigger nm, 'click' if map.getBounds().contains pano.location.latLng
+          linkit pano
+          src[id] = location: pano.location, links: pano.links, copyright: pano.copyright, imageDate: pano.imageDate, time: pano.time
+          markers[id] = nm
+        
+        linkit = (pano) ->
+          pano.links.forEach (link) ->
+            return if !(pos = markers[link.pano]?.position)
+            pl = new google.maps.Polyline
+              path: path = [pano.location.latLng, pos]
+              strokeColor: 'orange'
+              strokeOpacity: 1.0
+              strokeWeight: 2
+              map: map
+            links[links.length] = path
+          
+  script#gmap(async, defer, src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnbkGE5NaGYcCkckE_QGSzx9DzwVf2-4w&callback=initialize&libraries=places,drawing,geometry")
